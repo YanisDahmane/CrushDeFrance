@@ -1,0 +1,11 @@
+<%= render 'navbar' %>
+<h1>Bonjour Yanis</h1>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+  <% @posts.each do |post| %>
+    <div class="p-4 rounded-md shadow-md <%= post.status_color_class %>">
+      <p class="text-sm font-bold mb-2"><%= Post::STATUS[post.status] %></p>
+      <p class="text-gray-700 mb-4"><%= post.content %></p>
+      <p class="text-xs text-gray-500"><%= post.created_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
+    </div>
+  <% end %>
+</div>
